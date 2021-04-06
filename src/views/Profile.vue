@@ -1,8 +1,17 @@
 <template>
-    <div class="Profile">
+    <div class="page">
         <Nav />
         <div class="textHeader">Profilo</div>
-        {{ user.name }}
+        <div class="container">
+            <div class="userInfo">
+                <h1>{{ user.name }}</h1>
+                <h2>{{ user.username }}</h2>
+                <router-link to="/settings">
+                    <button>IMPOSTAZIONI
+                    </button>
+                </router-link>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -16,7 +25,7 @@ export default {
     },
     computed: {
         user () {
-            return this.$store.state
+            return this.$store.getters.getUser
         }
     },
     mounted: function () {
@@ -24,12 +33,10 @@ export default {
     }
 }
 </script>
-<style>
-.Profile {
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+<style lang="scss">
+.userInfo {
+    text-align: left;
+    padding: 0 20px;
 }
 </style>
