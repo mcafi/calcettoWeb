@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <Nav />
+    <div class="textHeader">Partite</div>
     <ul id="matchList">
       <li v-for="match of matchList" :key="match.id">
         <MatchItem v-bind:match="match"/>
@@ -33,6 +34,15 @@ export default {
 }
 </script>
 <style lang="scss">
+.textHeader {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  padding: 24px;
+  font-size: 42px;
+  font-weight: bolder;
+}
+
 .home {
   height: 100%;
   overflow: hidden;
@@ -48,5 +58,11 @@ export default {
   margin: 0;
   padding: 0;
   list-style: none;
+  background: linear-gradient(white 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)) 0 100%;
+  background: linear-gradient(white 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)) 0 100%;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  background-attachment: local, local, scroll, scroll;
 }
 </style>

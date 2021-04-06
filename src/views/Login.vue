@@ -8,6 +8,7 @@
                 <label for="loginPassword">Password</label>
                 <input id="loginPassword" type="password" v-model="password">
                 <button type="submit">LOGIN</button>
+                <button type="button" @click="googleSignIn()">ENTRA CON Google</button>
             </form>
         </div>
         <div></div>
@@ -33,6 +34,9 @@ export default {
             email: this.email,
             password: this.password
             })
+        },
+        googleSignIn: function () {
+            this.$store.dispatch('googleSignIn');
         }
     }
 }
@@ -71,6 +75,7 @@ label {
     margin-bottom: 8px;
 }
 button {
+    margin-bottom: 24px;
     background-color: white;
     color: #007935;
     font-size: 20px;
