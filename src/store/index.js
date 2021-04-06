@@ -22,9 +22,11 @@ export default createStore({
       dispatch('fetchUserProfile', user)
     },
     async fetchUserProfile({ commit }, user) {
+      console.log(user)
       const userProfile = await usersCollection.doc(user.uid).get()
       // set user profile in state
       commit('setUserProfile', userProfile.data())
+      console.log(userProfile.data())
       // change route to dashboard
       router.push('/')
     },
@@ -58,6 +60,9 @@ export default createStore({
     async getMatchesList() {
       const matchesList = await matchesCollection.get()
       return matchesList;
+    },
+    getUser() {
+      return this.state.userProfile
     }
   },
   modules: {
