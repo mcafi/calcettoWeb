@@ -1,13 +1,13 @@
 <template>
-    <div class="Login h-full bg-primary">
+    <div class="Login h-full bg-white dark:bg-gray">
         <LoginNav />
-        <form @submit.prevent="login()" class="container mx-auto p-12">
-            <label for="loginEmail" class="text-white">Indirizzo Email</label>
-            <input id="loginEmail" class="w-full text-black bg-white" type="email" v-model="email">
-            <label for="loginPassword" class="text-white">Password</label>
-            <input id="loginPassword" class="w-full text-black bg-white" type="password" v-model="password">
-            <button class="text-primary bg-white" type="submit">LOGIN</button>
-            <button class="text-primary bg-white" type="button" @click="googleSignIn()">ENTRA CON Google</button>
+        <form @submit.prevent="login()" class="container mx-auto p-12 sm:w-4/6">
+            <label for="loginEmail" class="text-gray dark:text-white">Indirizzo Email</label>
+            <input id="loginEmail" type="email" v-model="email">
+            <label for="loginPassword" class="text-gray dark:text-white">Password</label>
+            <input id="loginPassword" type="password" v-model="password">
+            <button class="text-white bg-primary block my-4 mx-auto p-2 w-full" type="submit">LOGIN</button>
+            <button class="text-white bg-primary block my-4 mx-auto p-2 w-full" type="button" @click="googleSignIn()">ENTRA CON Google</button>
         </form>
         <div></div>
     </div>
@@ -39,7 +39,7 @@ export default {
     }
 }
 </script>
-<style lang="scss">
+<style lang="postcss">
 .Login {
     display: flex;
     flex-direction: column;
@@ -49,10 +49,6 @@ input {
     height: 32px;
     padding: 4px 12px;
     font-size: 22x;
-    border: none;
-    border-radius: 16px;
-    display: block;
-    box-shadow: inset 0 0 10px #ddd;
 }
 label {
     font-size: 16px;

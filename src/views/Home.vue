@@ -3,7 +3,7 @@
     <Nav />
     <div class="textHeader">Partite</div>
     <div class="container scrollable">
-      <ul id="matchList">
+      <ul id="matchList" class="m-0 p-0 list-none">
         <li v-for="match of matchList" :key="match.id">
           <MatchItem v-bind:match="match"/>
         </li>
@@ -35,10 +35,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-#matchList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-</style>
