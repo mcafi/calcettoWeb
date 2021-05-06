@@ -3,11 +3,6 @@
 </template>
 
 <style lang="postcss">
-body, html {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   height: 100vh;
 }
@@ -30,10 +25,6 @@ body {
 }
 
 .page {
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply h-full overflow-hidden flex flex-col align-middle bg-white dark:bg-grey-800 text-grey-800 dark:text-grey-200;
 }
 </style>

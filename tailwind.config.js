@@ -5,14 +5,21 @@ module.exports = {
     darkMode: "media", // or 'media' or 'class'
     theme: {
         colors: {
-            primary: "#007935",
+            primary: {
+                light: "#058939",
+                DEFAULT: "#007935",
+                dark: "#006925"
+            },
             white: colors.white,
             black: colors.black,
+            red: colors.red,
             grey: colors.trueGray
         }
     },
     variants: {
-        extend: {},
+        extend: {
+            backgroundColor: ['active'],
+        },
     },
     plugins: [],
 }

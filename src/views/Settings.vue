@@ -2,7 +2,7 @@
     <div class="page">
         <div class="textHeader">Impostazioni</div>
         <div class="container">
-            <button id="logoutButton" @click="logout()">ESCI</button>
+            <button id="logoutButton" class="bg-red-500 active:bg-red-600 dark:active:bg-red-400" @click="logout()">ESCI</button>
         </div>
     </div>
 </template>
@@ -19,8 +19,4 @@ export default {
 </script>
 
 <style lang="scss">
-#logoutButton {
-    background-color: #c00;
-    color: white;
-}
 </style>
