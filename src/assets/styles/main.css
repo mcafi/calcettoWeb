@@ -2,8 +2,4 @@
 
 @tailwind base;
 @tailwind components;
-input {
-    @apply w-full text-black bg-white border-b-2 border-gray-50;
-}
-
 @tailwind utilities;

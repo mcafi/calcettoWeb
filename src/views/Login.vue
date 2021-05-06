@@ -1,15 +1,14 @@
 <template>
-    <div class="Login h-full bg-white dark:bg-gray">
+    <div class="Login h-full flex flex-column bg-white dark:bg-grey-800">
         <LoginNav />
-        <form @submit.prevent="login()" class="container mx-auto p-12 sm:w-4/6">
-            <label for="loginEmail" class="text-gray dark:text-white">Indirizzo Email</label>
+        <form @submit.prevent="login()" class="container mx-auto p-12 sm:w-4/6 m-auto">
+            <label for="loginEmail">Indirizzo Email</label>
             <input id="loginEmail" type="email" v-model="email">
-            <label for="loginPassword" class="text-gray dark:text-white">Password</label>
+            <label for="loginPassword">Password</label>
             <input id="loginPassword" type="password" v-model="password">
-            <button class="text-white bg-primary block my-4 mx-auto p-2 w-full" type="submit">LOGIN</button>
-            <button class="text-white bg-primary block my-4 mx-auto p-2 w-full" type="button" @click="googleSignIn()">ENTRA CON Google</button>
+            <button type="submit">LOGIN</button>
+            <button type="button" @click="googleSignIn()">ENTRA CON Google</button>
         </form>
-        <div></div>
     </div>
 </template>
 <script>
@@ -39,28 +38,18 @@ export default {
     }
 }
 </script>
-<style lang="postcss">
+<style lang="postcss" scoped>
 .Login {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 input {
-    height: 32px;
-    padding: 4px 12px;
-    font-size: 22x;
+    @apply h-8 py-2 px-3 w-full text-grey-800 dark:text-grey-100 bg-white dark:bg-grey-600 border-b-2 border-grey-700 dark:border-white;
 }
 label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    @apply block text-grey-800 dark:text-grey-50 mt-3 text-base font-bold
 }
 button {
-    margin-bottom: 24px;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 8px 20px;
-    border-radius: 16px;
-    border: none;
+    @apply text-grey-50 bg-primary block my-6 mx-auto py-2 px-4 w-full rounded-full border-0 text-lg font-semibold;
 }
 </style>
