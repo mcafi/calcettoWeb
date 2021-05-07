@@ -71,9 +71,34 @@ export const store = createStore({
             const matchesList = await matchesCollection.get()
             return matchesList;
         },
+        async getFutureMatchesList() {
+            const matchesList = await matchesCollection
+                .where("matchDate", ">", new Date().getTime())
+                .orderBy("matchDate", "asc")
+                .get()
+            return matchesList
+        },
         async getUserFutureMatchesList() {
-            const matchesList = await matchesCollection.where("creator", "==", this.state.uid).where("matchDate", ">", new Date().getTime()).get()
-            return matchesList;
+            const matchListByUser = await matchesCollection
+                .where("creator", "==", this.state.uid)
+                .where("matchDate", ">", new Date().getTime())
+                .get()
+            const matchListWithUser = await matchesCollection
+                .where("partecipants", "array-contains", this.state.uid)
+                .where("matchDate", ">", new Date().getTime())
+                .get()
+            return [...matchListByUser, ...matchListWithUser];
+        },
+        async getUserPreviousMatchesList() {
+            const matchListByUser = await matchesCollection
+                .where("creator", "==", this.state.uid)
+                .where("matchDate", "<", new Date().getTime())
+                .get()
+            const matchListWithUser = await matchesCollection
+                .where("partecipants", "array-contains", this.state.uid)
+                .where("matchDate", "<", new Date().getTime())
+                .get()
+            return [...matchListByUser, ...matchListWithUser];
         },
         async logout({ commit }) {
             firebase.auth().signOut()

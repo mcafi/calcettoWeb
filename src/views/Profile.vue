@@ -42,7 +42,7 @@ export default {
     },
     mounted: function () {
         console.log(this.user)
-        this.$store.dispatch("getUserFutureMatchesList").then(querySnapshot => {
+        this.$store.dispatch("getUserPreviousMatchesList").then(querySnapshot => {
             querySnapshot.forEach(doc => this.matchList.push(doc.data()))
         });
     }

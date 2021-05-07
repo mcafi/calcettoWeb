@@ -1,6 +1,6 @@
 <template>
-    <div class="matchItem p-5 m-4 rounded-md flex flex-row align-middle justify-between bg-white dark:bg-grey-700 text-grey-800 dark:text-grey-200 shadow-lg">
-        <div class="m-2 text-center font-bold">
+    <div class="matchItem p-5 my-5 rounded-xl flex flex-row align-middle justify-between bg-white dark:bg-grey-700 text-grey-800 dark:text-grey-200 shadow-lg">
+        <div class="mx-2 my-auto text-center font-bold">
             <div class="text-base">
                 {{ getDate() }}
             </div>
@@ -9,8 +9,13 @@
             </div>
         </div>
         <div class="matchInfo w-full text-left py-0 px-3">
-            <span class="font-extrabold mb-2">{{ match.place.name }}</span><br>
+            <span class="font-bold text-lg mb-2">{{ match.place.name }}</span><br>
             {{ match.matchName }}
+            <p>
+                <span class="font-extrabold">
+                    {{ match.available - match.partecipants.length }}/{{ match.available }}
+                </span>
+                posti liberi</p>
         </div>
     </div>
 </template>

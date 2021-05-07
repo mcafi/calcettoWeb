@@ -2,12 +2,13 @@
   <div class="page">
     <Nav />
     <div class="textHeader">Partite</div>
-    <div class="container overflow-y-auto">
-      <ul id="matchList">
+    <div class="container p-5 overflow-y-auto">
+      <ul v-if="matchList.length">
         <li v-for="match of matchList" :key="match.id">
           <MatchItem v-bind:match="match"/>
         </li>
       </ul>
+      <p v-else>Che tristezza...</p>
     </div>
   </div>
 </template>
