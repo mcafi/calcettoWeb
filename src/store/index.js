@@ -10,7 +10,8 @@ provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 export const store = createStore({
     state: {
         userProfile: {},
-        userDetails: {}
+        userDetails: {},
+        uid: ""
     },
     mutations: {
         setUserProfile(state, val) {
@@ -19,9 +20,13 @@ export const store = createStore({
         setUserDetails(state, val) {
             state.userDetails = val
         },
+        setUid(state, val) {
+            state.uid = val
+        },
         unsetUser(state) {
             state.userProfile = {}
             state.userDetails = {}
+            state.uid = ""
         }
     },
     actions: {
@@ -31,6 +36,7 @@ export const store = createStore({
         },
         async fetchUserProfile({ commit }, user) {
             commit("setUserDetails", user)
+            commit("setUid", user.uid)
             const userProfile = await usersCollection.doc(user.uid).get()
             commit('setUserProfile', userProfile.data())
             router.push('/')
@@ -63,6 +69,10 @@ export const store = createStore({
         },
         async getMatchesList() {
             const matchesList = await matchesCollection.get()
+            return matchesList;
+        },
+        async getUserFutureMatchesList() {
+            const matchesList = await matchesCollection.where("creator", "==", this.state.uid).where("matchDate", ">", new Date().getTime()).get()
             return matchesList;
         },
         async logout({ commit }) {

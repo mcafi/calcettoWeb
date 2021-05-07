@@ -27,4 +27,5 @@ body {
 .page {
   @apply h-full overflow-hidden flex flex-col align-middle bg-white dark:bg-grey-800 text-grey-800 dark:text-grey-200;
 }
+
 </style>

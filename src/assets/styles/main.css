@@ -2,7 +2,21 @@
 
 @tailwind base;
 @tailwind components;
+
 button {
     @apply rounded-lg border-0 text-lg font-semibold;
 }
+
+
+a {
+    @apply inline-block text-grey-100 font-medium no-underline uppercase !important;
+}
+
+a:not(:first-child) {
+    @apply ml-4;
+}
+a.router-link-exact-active {
+    @apply font-bold text-white !important;
+}
+
 @tailwind utilities;

@@ -3,7 +3,7 @@
     <Nav />
     <div class="textHeader">Partite</div>
     <div class="container overflow-y-auto">
-      <ul id="matchList" class="m-0 p-0 list-none">
+      <ul id="matchList">
         <li v-for="match of matchList" :key="match.id">
           <MatchItem v-bind:match="match"/>
         </li>

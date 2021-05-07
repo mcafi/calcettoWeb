@@ -1,27 +1,39 @@
 <template>
     <div class="page">
         <Nav />
-        <div class="textHeader">Profilo</div>
-        <div class="container">
+        <div class="textHeader">{{ user.name }}</div>
+        <div class="container mx-auto p-5">
+            <h2 class="text-lg text-left">{{ user.username }}</h2>
             <div class="text-left px-5">
-                <h1>{{ user.name }}</h1>
-                <h2>{{ user.username }}</h2>
                 <router-link to="/settings">
-                    <button>IMPOSTAZIONI
-                    </button>
+                    <button>IMPOSTAZIONI</button>
                 </router-link>
             </div>
+            <h2 class="text-xl text-left font-bold">Prossime partite</h2>
+            <ul v-if="matchList.length" id="matchList">
+                <li v-for="match of matchList" :key="match.id">
+                <MatchItem v-bind:match="match"/>
+                </li>
+            </ul>
+            <p v-else>Non hai partite che ti aspettano</p>
         </div>
     </div>
 </template>
 
 <script>
 import Nav from "@/components/Nav.vue";
+import MatchItem from "@/components/MatchItem.vue";
 
 export default {
     name: "Profile",
     components: {
-        Nav
+        Nav,
+        MatchItem
+    },
+    data: () => {
+        return {
+            matchList: []
+        }
     },
     computed: {
         user () {
@@ -30,6 +42,9 @@ export default {
     },
     mounted: function () {
         console.log(this.user)
+        this.$store.dispatch("getUserFutureMatchesList").then(querySnapshot => {
+            querySnapshot.forEach(doc => this.matchList.push(doc.data()))
+        });
     }
 }
 </script>
