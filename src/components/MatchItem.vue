@@ -1,5 +1,5 @@
 <template>
-    <div class="matchItem p-5 my-5 rounded-xl flex flex-row align-middle justify-between bg-white dark:bg-grey-700 text-grey-800 dark:text-grey-200 shadow-lg">
+    <li class="matchItem p-5 my-5 rounded-xl flex flex-row align-middle justify-between bg-white dark:bg-grey-700 text-grey-800 dark:text-grey-200 shadow-lg">
         <div class="mx-2 my-auto text-center font-bold">
             <div class="text-base">
                 {{ getDate() }}
@@ -17,7 +17,7 @@
                 </span>
                 posti liberi</p>
         </div>
-    </div>
+    </li>
 </template>
 
 <script>

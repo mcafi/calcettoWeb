@@ -3,6 +3,10 @@
 @tailwind base;
 @tailwind components;
 
+[v-cloak] {
+    display: none !important;
+}
+
 button {
     @apply rounded-lg border-0 text-lg font-semibold;
 }

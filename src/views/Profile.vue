@@ -2,7 +2,7 @@
     <div class="page">
         <Nav />
         <div class="textHeader">{{ user.name }}</div>
-        <div class="container mx-auto p-5">
+        <div class="container overflow-y-auto mx-auto p-5">
             <h2 class="text-lg text-left">{{ user.username }}</h2>
             <div class="text-left px-5">
                 <router-link to="/settings">
@@ -10,12 +10,15 @@
                 </router-link>
             </div>
             <h2 class="text-xl text-left font-bold">Prossime partite</h2>
-            <ul v-if="matchList.length" id="matchList">
-                <li v-for="match of matchList" :key="match.id">
-                <MatchItem v-bind:match="match"/>
-                </li>
+            <ul v-if="matchList.length" class="my-4">
+                <MatchItem v-for="match of matchList" :key="match.id" :match="match"/>
             </ul>
-            <p v-else>Non hai partite che ti aspettano</p>
+            <p v-cloak v-else class="font-italic my-4">Non hai partite che ti aspettano</p>
+            <h2 class="text-xl text-left font-bold">Storico partite</h2>
+            <ul v-if="previousMatchList.length" class="my-4">
+                <MatchItem v-for="match of previousMatchList" :key="match.id" :match="match"/>
+            </ul>
+            <p v-cloak v-else class="my-4">Non hai ancora partecipato a una partita</p>
         </div>
     </div>
 </template>
@@ -32,7 +35,8 @@ export default {
     },
     data: () => {
         return {
-            matchList: []
+            matchList: [],
+            previousMatchList: []
         }
     },
     computed: {
@@ -42,8 +46,11 @@ export default {
     },
     mounted: function () {
         console.log(this.user)
-        this.$store.dispatch("getUserPreviousMatchesList").then(querySnapshot => {
+        this.$store.dispatch("getUserFutureMatchesList").then(querySnapshot => {
             querySnapshot.forEach(doc => this.matchList.push(doc.data()))
+        });
+        this.$store.dispatch("getUserPreviousMatchesList").then(querySnapshot => {
+            querySnapshot.forEach(doc => this.previousMatchList.push(doc.data()))
         });
     }
 }

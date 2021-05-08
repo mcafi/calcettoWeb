@@ -4,11 +4,9 @@
     <div class="textHeader">Partite</div>
     <div class="container p-5 overflow-y-auto">
       <ul v-if="matchList.length">
-        <li v-for="match of matchList" :key="match.id">
-          <MatchItem v-bind:match="match"/>
-        </li>
+        <MatchItem v-for="match of matchList" :key="match.id" :match="match"/>
       </ul>
-      <p v-else>Che tristezza...</p>
+      <p v-cloak v-else>Caricamento...</p>
     </div>
   </div>
 </template>
