@@ -8,17 +8,11 @@
             <button type="submit">LOGIN</button>
             <button type="button" @click="googleSignIn()">ENTRA CON Google</button>
         </form>
-        <LoginNav />
     </div>
 </template>
 <script>
-import LoginNav from "@/components/LoginNav.vue"
-
 export default {
     name: "Login",
-    components: {
-        LoginNav
-    },
     data: () => {
         return {
             email: "",
