@@ -1,8 +1,7 @@
 <template>
-    <div class="page">
-        <Nav />
+    <div class="page h-100 flex flex-col">
         <div class="textHeader">{{ user.name }}</div>
-        <div class="container overflow-y-auto mx-auto p-5">
+        <div class="container overflow-y-auto mx-auto flex-1 p-5">
             <h2 class="text-lg text-left">{{ user.username }}</h2>
             <div class="text-left px-5">
                 <router-link to="/settings">
@@ -20,6 +19,7 @@
             </ul>
             <p v-cloak v-else class="my-4">Non hai ancora partecipato a una partita</p>
         </div>
+        <Nav />
     </div>
 </template>
 

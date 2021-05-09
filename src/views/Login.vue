@@ -1,6 +1,5 @@
 <template>
     <div class="h-full flex flex-col page">
-        <LoginNav />
         <form @submit.prevent="login()" class="container mx-auto p-12 sm:w-3/6 m-auto">
             <label for="loginEmail">Indirizzo Email</label>
             <input id="loginEmail" type="email" v-model="email">
@@ -9,6 +8,7 @@
             <button type="submit">LOGIN</button>
             <button type="button" @click="googleSignIn()">ENTRA CON Google</button>
         </form>
+        <LoginNav />
     </div>
 </template>
 <script>

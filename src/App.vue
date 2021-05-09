@@ -3,21 +3,22 @@
 </template>
 
 <style lang="postcss">
+
 body {
   height: 100vh;
+  height: -webkit-fill-available;
 }
 
-* {
-  box-sizing: border-box;
+html {
+  height: -webkit-fill-available;
 }
 
 #app {
+  @apply text-black text-center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
+  height: -webkit-fill-available;
 }
 
 .textHeader {

@@ -1,13 +1,13 @@
 <template>
   <div class="page">
-    <Nav />
     <div class="textHeader">Partite</div>
-    <div class="container p-5 overflow-y-auto">
+    <div class="container flex-1 p-5 overflow-y-auto">
       <ul v-if="matchList.length">
         <MatchItem v-for="match of matchList" :key="match.id" :match="match"/>
       </ul>
       <p v-cloak v-else>Caricamento...</p>
     </div>
+    <Nav />
   </div>
 </template>
 
